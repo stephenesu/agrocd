@@ -1,0 +1,104 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uploader
+  labels:
+    app: uploader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uploader
+  template:
+    metadata:
+      labels:
+        app: uploader
+    spec:
+      containers:
+        - name: uploader-container
+          image: nginx:latest  # Example image for the uploader service
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: renderer
+  labels:
+    app: renderer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: renderer
+  template:
+    metadata:
+      labels:
+        app: renderer
+    spec:
+      containers:
+        - name: renderer-container
+          image: nginx:latest  # Example image for the renderer service
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: converter
+  labels:
+    app: converter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: converter
+  template:
+    metadata:
+      labels:
+        app: converter
+    spec:
+      containers:
+        - name: converter-container
+          image: nginx:latest  # Example image for the converter service
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logger
+  labels:
+    app: logger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logger
+  template:
+    metadata:
+      labels:
+        app: logger
+    spec:
+      containers:
+        - name: logger-container
+          image: nginx:latest  # Example image for the logger service
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notifier
+  labels:
+    app: notifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notifier
+  template:
+    metadata:
+      labels:
+        app: notifier
+    spec:
+      containers:
+        - name: notifier-container
+          image: nginx:latest  # Example image for the notifier service
